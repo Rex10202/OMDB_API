@@ -18,13 +18,12 @@ import com.aluracursos.screenmatch.service.ConsumoAPI;
 import com.aluracursos.screenmatch.service.ConvierteDatos;
 
 public class Principal {
-    private Scanner teclado = new Scanner(System.in);
-    private ConsumoAPI consumoApi = new ConsumoAPI();
+    private final Scanner teclado = new Scanner(System.in);
+    private final ConsumoAPI consumoApi = new ConsumoAPI();
     private final String URL_BASE = "https://www.omdbapi.com/?t=";
     private final String API_KEY = System.getenv("API_KEY");
-    private ConvierteDatos conversor = new ConvierteDatos();
-    private List<DatosSerie> datosSeries = new ArrayList<>();
-    private SerieRepository repositorio;
+    private final ConvierteDatos conversor = new ConvierteDatos();
+    private final SerieRepository repositorio;
     private List<Serie> series;
     private Optional<Serie> serieBuscada;
 
@@ -52,38 +51,17 @@ public class Principal {
             teclado.nextLine();
 
             switch (opcion) {
-                case 1:
-                    buscarSerieWeb();
-                    break;
-                case 2:
-                    buscarEpisodioPorSerie();
-                    break;
-                case 3:
-                    mostrarSeriesBuscadas();
-                    break;
-                case 4:
-                    buscarSeriePorTitulo();
-                    break;
-                case 5:
-                    buscarTop5Serie();
-                    break;
-                case 6:
-                    buscarSeriePorGenero();
-                    break;
-                case 7:
-                    buscarSeriePorTemporadaYEvaluacion();
-                    break;
-                case 8:
-                    buscarEpisodioPorTitulo();
-                    break;
-                case 9:
-                    buscarTop5Episodios();
-                    break;
-                case 0:
-                    System.out.println("Cerrando la aplicación...");
-                    break;
-                default:
-                    System.out.println("Opción inválida");
+                case 1 -> buscarSerieWeb();
+                case 2 -> buscarEpisodioPorSerie();
+                case 3 -> mostrarSeriesBuscadas();
+                case 4 -> buscarSeriePorTitulo();
+                case 5 -> buscarTop5Serie();
+                case 6 -> buscarSeriePorGenero();
+                case 7 -> buscarSeriePorTemporadaYEvaluacion();
+                case 8 -> buscarEpisodioPorTitulo();
+                case 9 -> buscarTop5Episodios();
+                case 0 -> System.out.println("Cerrando la aplicación...");
+                default -> System.out.println("Opción inválida");
             }
         }
 
